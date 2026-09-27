@@ -11,6 +11,7 @@ Set-AuthenticodeSignature -FilePath .\blackjack.exe -Certificate $cert
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include "game.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -23,8 +24,9 @@ int main()
     int third_card = 0;
     int is_as = 0;
     int lenght = 156;
-    char shoe[156] = Cards();
-    char shoe_shuffled[156] = Shuffle(shoe);
+    char shoe[156];
+    Cards(shoe);
+    Shuffle(shoe, 156);
     puts("Welcome to the marvelous Casino of Liera, we´re happy to join us!");
     puts("Black Jack!!");
     puts("I give you two cards and you decide if you want one more, Crupier gives 2 cards and if the result of the");
@@ -39,17 +41,17 @@ int main()
         int player_cards[18] = {};
         int crupier_cards[18] = {};
         puts("There is your two cards:");
-        player_cards[0] = check(shoe_shuffled[counter]);
-        player_cards[1] = check(shoe_shuffled[counter + 1]);
-        print_cards(shoe_shuffled[counter]);
-        print_cards(shoe_shuffled[counter + 1]);
+        player_cards[0] = check(shoe[counter]);
+        player_cards[1] = check(shoe[counter + 1]);
+        print_cards(shoe[counter]);
+        print_cards(shoe[counter + 1]);
         puts("Crupier Cards:");
-        crupier_cards[0] = check(shoe_shuffled[counter + 2]);
-        crupier_cards[1] = check(shoe_shuffled[counter + 3]);
-        print_cards(shoe_shuffled[counter + 2]);
-        print_cards(shoe_shuffled[counter + 3]);
+        crupier_cards[0] = check(shoe[counter + 2]);
+        crupier_cards[1] = check(shoe[counter + 3]);
+        print_cards(shoe[counter + 2]);
+        print_cards(shoe[counter + 3]);
         counter += 4;
-        counter = actions(player_cards, crupier_cards, counter, shoe_shuffled);
+        counter = actions(player_cards, crupier_cards, counter, shoe);
         exit = menu_exit();
 
     } while (!exit || counter <= 126);

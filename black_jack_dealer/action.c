@@ -4,6 +4,11 @@
  * No licence.
  * Component to take the action for the player decision of his hand.
  */
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include "game.h"
+
 #define KEY_UP 72
 #define KEY_DOWN 80
 #define KEY_ENTER 13
@@ -13,19 +18,19 @@ int actions(int player_cards[], int crup_cards[], int counter, char shoe[])
     int index = 2;
     int total = 0;
     int total_crup = 0;
-    for (int i = 0; i < sizeof(player_cards); i++)
+    for (int i = 0; i < 18; i++)
     {
         total += player_cards[i];
-        if (total = 21)
+        if (total == 21)
         {
             printf("\032[¡BlackJack! ¡You Win!]\032");
             return counter;
         }
     }
-    for (int i = 0; i < sizeof(crup_cards); i++)
+    for (int i = 0; i < 18; i++)
     {
         total_crup += crup_cards[i];
-        if (total_crup = 21)
+        if (total_crup == 21)
         {
             printf("\031[¡BlackJack! ¡You Lose!]\031");
             return counter;
@@ -34,7 +39,7 @@ int actions(int player_cards[], int crup_cards[], int counter, char shoe[])
     do
     {
         total = 0;
-        for (int i = 0; i < sizeof(player_cards); i++)
+        for (int i = 0; i < 18; i++)
         {
 
             if (player_cards[i] != 0)
@@ -70,7 +75,7 @@ int actions(int player_cards[], int crup_cards[], int counter, char shoe[])
     index = 2;
     while (total_crup < 17 || total_crup > total)
     {
-        for (int i = 0; i < sizeof(crup_cards); i++)
+        for (int i = 0; i < 18; i++)
         {
 
             if (crup_cards[i] != 0)
