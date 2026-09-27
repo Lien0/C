@@ -148,7 +148,10 @@ void print_cards(char card)
         }
     else
     {
-        val = atoi(card);
+        /*If there is only a char and not a str we
+        can use the ASCII manner, rest '0' to the char
+        not use atoi*/
+        val = card - '0';
         for (int line = 0; line < CARD_LINES; line++)
         {
             printf("%s\n", cards[val - 1][line]);
