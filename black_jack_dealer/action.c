@@ -124,6 +124,7 @@ int actions(int player_cards[], int crup_cards[], int counter, char shoe[])
             }
         }
     }
+    return counter;
 }
 
 /*

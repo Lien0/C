@@ -8,7 +8,7 @@
 
 void Cards(char *shoe)
 {
-    char shoe[156] = {
+    char initial_shoe[156] = {
         'A',
         '2',
         '3',
@@ -165,4 +165,9 @@ void Cards(char *shoe)
         'J',
         'Q',
         'K'};
+
+    for (int i = 0; i < 156; i++)
+    {
+        shoe[i] = initial_shoe[i];
+    }
 }

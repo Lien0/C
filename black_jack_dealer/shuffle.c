@@ -10,9 +10,8 @@
 #include "game.h"
 #include <stdint.h>
 
-char Shuffle(char cards[156])
+char Shuffle(char *cards, int lenght)
 {
-    uint32_t lenght = 156;
     uint32_t j = random_uniform_win(lenght - 1);
     for (int i = lenght - 1; i >= 0; i--)
     {

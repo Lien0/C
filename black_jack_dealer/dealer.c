@@ -19,11 +19,7 @@ Set-AuthenticodeSignature -FilePath .\blackjack.exe -Certificate $cert
 int main()
 {
     int counter = 0;
-    int sum = 0;
     int exit = 0;
-    int third_card = 0;
-    int is_as = 0;
-    int lenght = 156;
     char shoe[156];
     Cards(shoe);
     Shuffle(shoe, 156);

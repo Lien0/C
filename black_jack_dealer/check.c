@@ -8,21 +8,11 @@
 #include <stdlib.h>
 #include "game.h"
 
-int check(char card_name[3])
+int check(char card)
 {
-    int val = 0;
-    if (card_name[0] == 'J')
-        val = 10;
-    else if (card_name[0] == 'Q')
-        val = 10;
-    else if (card_name[0] == 'K')
-        val = 10;
-    else if (card_name[0] == 'T')
-        val = 10;
-    else if (card_name[0] == 'A')
-        val = 11;
-    else
-        val = atoi(card_name);
-
-    return val;
+    if (card == 'T' || card == 'J' || card == 'Q' || card == 'K')
+        return 10;
+    if (card == 'A')
+        return 11;
+    return card - '0';
 }
